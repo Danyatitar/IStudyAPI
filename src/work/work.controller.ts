@@ -27,7 +27,7 @@ import {
 } from '@nestjs/common/decorators';
 import mongoose from 'mongoose';
 import { Work } from './schema/work.schema';
-import { CreateMarkDto } from 'src/mark/dto/mark.dto';
+// import { CreateMarkDto } from 'src/mark/dto/mark.dto';
 
 @Controller('works')
 export class WorkController {
@@ -59,7 +59,7 @@ export class WorkController {
     @Param('id')
     id: mongoose.Schema.Types.ObjectId,
     @Body()
-    workDto: MarkWorkDto,
+    workDto,
   ) {
     return this.WorkService.markWork(workDto, id);
   }
@@ -206,7 +206,7 @@ export class WorkController {
     @Param('id')
     id: mongoose.Schema.Types.ObjectId,
     @Req() req,
-    @Body() markDto: CreateMarkDto,
+    @Body() markDto,
   ): Promise<Work> {
     const mark = await this.MarkService.createMark(req.user.id, markDto);
     const work = await this.WorkService.markByStudent(mark, id);
@@ -221,7 +221,7 @@ export class WorkController {
     @Query('markId')
     markId: mongoose.Schema.Types.ObjectId,
     @Req() req,
-    @Body() markDto: CreateMarkDto,
+    @Body() markDto,
   ): Promise<Work> {
     const mark = await this.MarkService.updateMark(markId, markDto);
 
