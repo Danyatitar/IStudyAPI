@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "rewrites": [{ "source": "/(.*)", "destination": "/" }],
+  "rewrites": [{ "src": "/(.*)", "destination": "/" }],
   "builds": [
     {
       "src": "dist/main.js",
