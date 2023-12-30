@@ -1,4 +1,4 @@
-import { CreateMarkDto } from './dto/mark.dto';
+import { CreateMarkDto } from './dto/mark.dto.js';
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import mongoose, { Model } from 'mongoose';
