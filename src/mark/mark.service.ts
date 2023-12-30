@@ -1,4 +1,4 @@
-// import { CreateMarkDto } from './dto/mark.dto';
+import { CreateMarkDto } from './dto/mark.dto';
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import mongoose, { Model } from 'mongoose';
@@ -13,7 +13,7 @@ export class MarkService {
 
   async createMark(
     studentId: mongoose.Schema.Types.ObjectId,
-    markDto,
+    markDto: CreateMarkDto,
   ): Promise<Mark> {
     const mark = await this.markModel.create({
       studentId,
@@ -22,7 +22,10 @@ export class MarkService {
 
     return mark;
   }
-  async updateMark(id: mongoose.Schema.Types.ObjectId, markDto): Promise<Mark> {
+  async updateMark(
+    id: mongoose.Schema.Types.ObjectId,
+    markDto: CreateMarkDto,
+  ): Promise<Mark> {
     const mark = await this.markModel.findByIdAndUpdate(id, markDto);
     return mark;
   }
