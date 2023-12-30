@@ -27,7 +27,7 @@ import {
 } from '@nestjs/common/decorators';
 import mongoose from 'mongoose';
 import { Work } from './schema/work.schema';
-import { CreateMarkDto } from 'src/mark/dto/mark.dto.js';
+import { CreateMarkDto } from '../mark/dto/mark.dto.js';
 
 @Controller('works')
 export class WorkController {
